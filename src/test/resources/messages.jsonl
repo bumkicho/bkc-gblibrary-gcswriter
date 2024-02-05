@@ -1,0 +1,2 @@
+{"source":"web","sourceUri":"https://gutenberg.org/cache/epub/feeds","fileName":"rdf-files.tar.bz2","target":"gcs","targetUri":"bkc-ai-ml-core-files"}
+{"source":"web","sourceUri":"https://gutenberg.org/cache/epub/feeds","fileName":"web site","target":"pubsub","targetUri":"web scraped text"}

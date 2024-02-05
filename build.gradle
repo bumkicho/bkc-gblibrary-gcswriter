@@ -1,0 +1,71 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.14'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.bkc'
+version = '0.0.1-SNAPSHOT'
+
+springBoot {
+	mainClass = 'com.bkc.gblibrary.GblibraryApplication.Main'
+}
+
+// Variables
+def beamSDKVersion = '2.32.0'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven {
+        url "https://packages.confluent.io/maven/"
+    }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	implementation 'org.apache.beam:beam-sdks-java-core:'+beamSDKVersion
+	implementation 'org.apache.beam:beam-sdks-java-io-jdbc:'+beamSDKVersion
+	implementation 'org.apache.beam:beam-runners-direct-java:'+beamSDKVersion
+	implementation 'org.apache.beam:beam-sdks-java-core:'+beamSDKVersion
+	implementation 'org.apache.beam:beam-runners-google-cloud-dataflow-java:'+beamSDKVersion
+	implementation 'org.apache.beam:beam-sdks-java-io-google-cloud-platform:'+beamSDKVersion
+
+	implementation 'org.apache.commons:commons-compress:1.21'
+	implementation 'org.apache.jena:jena-core:3.17.0'
+	implementation 'org.apache.jena:jena-arq:3.17.0'
+
+	implementation 'commons-io:commons-io:2.11.0'
+
+	implementation 'com.google.guava:guava:30.1.1-jre'
+	implementation 'com.google.cloud:google-cloud-storage:2.27.1'
+
+	implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.31.5'
+	
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testImplementation 'org.apache.beam:beam-sdks-java-core:'+beamSDKVersion
+	testImplementation 'org.apache.beam:beam-runners-direct-java:'+beamSDKVersion
+	testImplementation 'org.apache.beam:beam-sdks-java-core:'+beamSDKVersion
+	testImplementation 'org.apache.beam:beam-runners-google-cloud-dataflow-java:'+beamSDKVersion
+	testImplementation 'org.apache.beam:beam-sdks-java-io-google-cloud-platform:'+beamSDKVersion
+
+	testImplementation 'commons-io:commons-io:2.11.0'
+	testImplementation 'org.apache.commons:commons-compress:1.21'
+	testImplementation 'com.google.guava:guava:30.1.1-jre'
+
+}
+
+test {
+	useJUnitPlatform()
+}

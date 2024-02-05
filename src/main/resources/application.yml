@@ -1,0 +1,13 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: ZgCPANTP5Kcu}fvN
+    url: jdbc:postgresql://34.170.85.170:5432/ai-ml-db?currentSchema=ai-ml-schema&ssl=false
+    username: ai-ml-user
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
